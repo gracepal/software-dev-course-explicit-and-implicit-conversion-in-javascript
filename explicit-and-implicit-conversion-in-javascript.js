@@ -18,15 +18,61 @@ Use console.log() to clearly show the before-and-after type conversions.
 
 */
 
+// Implicit conversion to number when subtracting with non-number
+let result = '5' - 2;
+console.log('\n[BEFORE] The result is: ' + result);
+// Refactor: explicitly convert '5' to Number for better readability
+result = Number('5') - 2;
+console.log('[ AFTER] The result is: ' + result);
+console.log('\n');
 
-let result = "5" - 2;
-console.log("The result is: " + result);
-
-let isValid = Boolean("false");
+// Explicit conversion of non-empty string to Boolean truthy value
+let isValid = Boolean('false');
+process.stdout.write('[BEFORE] ');
 if (isValid) {
-    console.log("This is valid!");
+  console.log('This is valid!');
 }
+// Refactor: implicitly convert without passing in string to Boolean() function
+process.stdout.write('[ AFTER] ');
+isValid = 'true';
+if (isValid) {
+  console.log('This is valid!');
+}
+console.log('\n');
 
-let age = "25";
+// Implicit conversion to string when adding with non-string
+let age = '25';
 let totalAge = age + 5;
-console.log("Total Age: " + totalAge);
+console.log('[BEFORE] Total Age: ' + totalAge);
+// Fix: explicitly convert '25' to Number for expected sum output
+age = Number('25');
+totalAge = age + 5;
+console.log('[ AFTER] Total Age: ' + totalAge);
+console.log('\n');
+
+// Edge case
+let gradedScore; // undefined -> falsey
+if (gradedScore) {
+  console.log('Your score has been graded!');
+} else {
+  console.log(`Waiting in queue (${gradedScore})...`);
+}
+gradedScore = null; // null -> falsey
+if (gradedScore) {
+  console.log('Your score has been graded!');
+} else {
+  console.log(`Picked up for grading (${gradedScore})...`);
+}
+gradedScore = NaN; // NaN -> falsey
+if (gradedScore) {
+  console.log('Your score has been graded!');
+} else {
+  console.log(`Processing grade (${gradedScore})...`);
+}
+gradedScore = 91; // non-zero number -> truthy
+if (gradedScore) {
+  console.log('Your score has been graded!');
+} else {
+  console.log('ERROR');
+}
+console.log('\n');
