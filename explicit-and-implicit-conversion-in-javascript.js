@@ -19,12 +19,9 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 // Implicit conversion to number when subtracting with non-number
+// Correct as-is, already an implicit conversion
 let result = '5' - 2;
-console.log('\n[BEFORE] The result is: ' + result);
-// Refactor: explicitly convert '5' to Number for better readability
-result = Number('5') - 2;
-console.log('[ AFTER] The result is: ' + result);
-console.log('\n');
+console.log('\nThe result is: ' + result);
 
 // Explicit conversion of non-empty string to Boolean truthy value
 let isValid = Boolean('false');
