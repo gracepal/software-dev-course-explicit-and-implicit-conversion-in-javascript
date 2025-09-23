@@ -24,18 +24,11 @@ let result = '5' - 2;
 console.log('\nThe result is: ' + result);
 
 // Explicit conversion of non-empty string to Boolean truthy value
+// Correct as-is, already an explitcit conversion using Boolean() constructor
 let isValid = Boolean('false');
-process.stdout.write('[BEFORE] ');
 if (isValid) {
   console.log('This is valid!');
 }
-// Refactor: implicitly convert without passing in string to Boolean() function
-process.stdout.write('[ AFTER] ');
-isValid = 'true';
-if (isValid) {
-  console.log('This is valid!');
-}
-console.log('\n');
 
 // Implicit conversion to string when adding with non-string
 let age = '25';
