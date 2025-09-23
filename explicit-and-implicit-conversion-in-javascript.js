@@ -36,29 +36,16 @@ let age = Number('25');
 let totalAge = age + 5;
 console.log('Total Age: ' + totalAge);
 
-// Edge case
-let gradedScore; // undefined -> falsey
+// Add edge case - Implicit type conversion
+// Because the if statement evaluates the variable as boolean
+let gradedScore = null; // null -> falsey
 if (gradedScore) {
   console.log('Your score has been graded!');
-} else {
-  console.log(`Waiting in queue (${gradedScore})...`);
 }
-gradedScore = null; // null -> falsey
-if (gradedScore) {
-  console.log('Your score has been graded!');
-} else {
-  console.log(`Picked up for grading (${gradedScore})...`);
-}
-gradedScore = NaN; // NaN -> falsey
-if (gradedScore) {
-  console.log('Your score has been graded!');
-} else {
-  console.log(`Processing grade (${gradedScore})...`);
-}
-gradedScore = 91; // non-zero number -> truthy
-if (gradedScore) {
-  console.log('Your score has been graded!');
-} else {
-  console.log('ERROR');
-}
-console.log('\n');
+
+// Add edge case - Explicit type conversion
+// Because the .toString() method converts gradedScore to a string
+gradedScore = 91;
+graded = gradedScore.toString();
+console.log('Your graded score is ' + graded);
+console.log(typeof graded);
