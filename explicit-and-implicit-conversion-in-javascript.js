@@ -31,14 +31,10 @@ if (isValid) {
 }
 
 // Implicit conversion to string when adding with non-string
-let age = '25';
+// Fix: explicitly convert '25' to Number() so that output is a number and not a string concatenation
+let age = Number('25');
 let totalAge = age + 5;
-console.log('[BEFORE] Total Age: ' + totalAge);
-// Fix: explicitly convert '25' to Number for expected sum output
-age = Number('25');
-totalAge = age + 5;
-console.log('[ AFTER] Total Age: ' + totalAge);
-console.log('\n');
+console.log('Total Age: ' + totalAge);
 
 // Edge case
 let gradedScore; // undefined -> falsey
