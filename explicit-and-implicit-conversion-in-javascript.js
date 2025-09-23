@@ -47,5 +47,6 @@ if (gradedScore) {
 // Because the .toString() method converts gradedScore to a string
 gradedScore = 91;
 graded = gradedScore.toString();
-console.log('Your graded score is ' + graded);
-console.log(typeof graded);
+console.log('Your graded score is: ' + graded);
+console.log('After conversion:', typeof graded);
+console.log('\n');
